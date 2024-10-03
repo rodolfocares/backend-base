@@ -1,11 +1,15 @@
 pipeline {
 
     agent any
+    enviroment{
+        NPM_CONFIG_CACHE = "{WORKSPACE}/.npm"
+    }
     stages{
         stage('etapa de construccion de aplicacion'){
             agent {
                 docker{
                     image 'node:alpile3.20'
+                    reuseNode true
                 }
             }
             stages{

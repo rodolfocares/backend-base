@@ -34,7 +34,7 @@ pipeline {
         stage('construccion imagen docker'){
             steps{
                 script{
-                    docker.withRegistry("https://us-central1-docker.pkg.dev",'gcp-registry'){
+                    docker.withRegistry("https://us-central1-docker.pkg.dev",'gcp-registry2'){
                         sh 'docker build -t backend-base .'
                         sh 'docker tag backend-base us-central1-docker.pkg.dev/expertis-classroom/docker-repository/backend-base:rcm'
                         sh 'docker push us-central1-docker.pkg.dev/expertis-classroom/docker-repository/backend-base:rcm'

@@ -1,7 +1,7 @@
 pipeline {
 
     agent any
-    enviroment{
+    environment{
         NPM_CONFIG_CACHE = "{WORKSPACE}/.npm"
     }
     stages{

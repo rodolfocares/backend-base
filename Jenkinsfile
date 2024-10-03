@@ -19,6 +19,29 @@ pipeline {
                     }
                 }
             }
+            stages{
+                stage("test"){
+                    steps{
+                        sh 'npm run test'
+                    }
+                }
+            }
+            stages{
+                stage("build"){
+                    steps{
+                        sh 'npm run build'
+                    }
+                }
+            }
+
+        stage('construccion imagen docker'){
+            steps{
+                script{
+                    sh 'docker build -t backend-base .'
+                    sh 'docker tag backend-base us-central1-docker.pkg.dev/expertis-classroom/docker-repository/backend-base:rcm'
+                }
+            }
+        }
 
         }
     }

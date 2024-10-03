@@ -34,6 +34,7 @@ pipeline {
                 }
             }
 
+        }
         stage('construccion imagen docker'){
             steps{
                 script{
@@ -43,7 +44,6 @@ pipeline {
             }
         }
 
-        }
     }
 
 }
